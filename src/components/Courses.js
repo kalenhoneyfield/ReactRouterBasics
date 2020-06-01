@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink, Route, Redirect } from 'react-router-dom'
 
-import HTML from './courses/HTML'
-import CSS from './courses/CSS'
-import JavaScript from './courses/JavaScript'
+import CourseContainer from './courses/CourseContainer'
+import { HTMLCourses, CSSCourses, JSCourses } from '../data/courses';
+// import HTML from './courses/HTML'
+// import CSS from './courses/CSS'
+// import JavaScript from './courses/JavaScript'
 
 const Courses = ({match}) => (
   <div className="main-content courses">
@@ -25,15 +27,15 @@ const Courses = ({match}) => (
     />
     <Route 
         path={`${match.path}/html`}
-        component={HTML}
+        render={ ()=> <CourseContainer data={HTMLCourses} /> }
       />
     <Route 
         path={`${match.path}/css`}
-        component={CSS}
+        render={ ()=> <CourseContainer data={CSSCourses} /> }
       />
     <Route 
         path={`${match.path}/JavaScript`}
-        component={JavaScript}
+        render={ ()=> <CourseContainer data={JSCourses} /> }
       />
   </div>
 );
